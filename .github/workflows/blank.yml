@@ -26,6 +26,6 @@ jobs:
         id: generate_version
         run: |
           branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-          echo "version=${node ./.github/workflows/js/get-version.js ${branch}}" >> $GITHUB_OUTPUT
+          echo "version=$(node ./.github/workflows/js/get-version.js ${branch})" >> $GITHUB_OUTPUT
       - name: Print version
         run: echo "${{ steps.generate_version.outputs.version }}"

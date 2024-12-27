@@ -6,7 +6,12 @@ if (!branch) {
     return;
 }
 
+let version;
 
-const version = require('../../../projects/manage-res-lib/package.json').version;
+try {
+    version = require('../../../projects/manage-res-lib/package.json').version;
+} catch(e) {
+    version="1.0.0";
+}
 
 console.log(`${version}-${branch}`);
